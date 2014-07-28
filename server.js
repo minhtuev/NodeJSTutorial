@@ -1,5 +1,13 @@
 var http = require("http");
 
+function say(word) {
+  console.log(word);
+}
+
+function execute(someFunction, value) {
+  someFunction(value);
+}
+
 http.createServer(function(request, response) {
   response.writeHead(200, {"Content-Type": "text/plain"});
   response.write("Hello World\n");
@@ -7,5 +15,5 @@ http.createServer(function(request, response) {
   response.write("Welcome to my world.\n");
   response.write("I love NodeJS.\n=")
   response.end();
-  console.log("This is done.\n");
+  execute(say, "This is done.\n");
 }).listen(8881);
